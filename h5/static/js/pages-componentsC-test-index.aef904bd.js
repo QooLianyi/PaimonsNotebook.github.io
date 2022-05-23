@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["pages-componentsC-test-index"],{ec123:function(e,n,t){"use strict";var c;t.r(n);var s,u=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("v-uni-view")},a=[],i=t("f0c5"),l={},o=Object(i["a"])(l,u,a,!1,null,null,null,!1,c,s);n["default"]=o.exports}}]);
