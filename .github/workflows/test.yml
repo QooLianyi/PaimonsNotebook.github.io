@@ -36,7 +36,8 @@ jobs:
       run: ./gradlew run
       working-directory: ./github_actions
 
-    - uses: stefanzweifel/git-auto-commit-action@v5
+    - name: Commit output
+      uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: update file(s) skip-checks:true
 

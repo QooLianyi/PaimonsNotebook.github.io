@@ -1,13 +1,33 @@
 package com.lianyi
 
-import com.lianyi.core.ApiEndport
 import com.lianyi.exts.getFile
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.sql.Timestamp
 
 fun main() {
 
-    getFile("test_${System.currentTimeMillis()}").writeText("hello world ! \n ${System.currentTimeMillis()}")
+    val output = getFile("test_hoyolab_output.json")
 
-    println("task finish time = ${System.currentTimeMillis()}")
+    val client = OkHttpClient().newBuilder()
+        .build()
+
+    val request = Request.Builder()
+        .url("https://sg-wiki-api.hoyolab.com/hoyowiki/hsr/wapi/get_entry_page_list")
+        .addHeader("Referer", "https://wiki.hoyolab.com/")
+        .addHeader("x-rpc-wiki_app", "hsr")
+        .addHeader("x-rpc-language", "zh-cn")
+        .post("{\"filters\":[],\"menu_id\":\"104\",\"page_num\":1,\"page_size\":50,\"use_es\":true}".toRequestBody("application/json".toMediaType()))
+        .build()
+
+    client.newCall(request).execute().use { res ->
+        val result = res.body?.string() ?: "error"
+        output.writeText(result)
+    }
+
+    println("task finish time = ${Timestamp(System.currentTimeMillis())}")
 
 //    val xxHash = XXHash()
 //
