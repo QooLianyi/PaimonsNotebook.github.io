@@ -18,8 +18,13 @@ jobs:
         distribution: 'zulu'
         java-version: '21'
 
-    - name: Build with Gradle
-      run: gradlew build
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
 
-    - name: Run application
-      run: gradlew run
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: 
+      run: ./gradlew run
+
+

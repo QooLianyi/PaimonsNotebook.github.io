@@ -1,9 +1,14 @@
 plugins {
     kotlin("jvm") version "1.9.23"
+    application
 }
 
 group = "com.lianyi"
 version = "1.0-SNAPSHOT"
+
+application{
+    mainClass.set("com.lianyi.MainKt")
+}
 
 repositories {
     mavenCentral()
