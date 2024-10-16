@@ -11,4 +11,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      run: kotlinc -script ./github_actions/src/main/kotlin/Main.kt
+    
+    - name: Run Kotlin script
+      run: |
+        kotlinc -script ./github_actions/src/main/kotlin/Main.kt
