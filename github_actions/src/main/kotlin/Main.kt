@@ -7,6 +7,8 @@ fun main() {
 
     getFile("test_${System.currentTimeMillis()}").writeText("hello world ! \n ${System.currentTimeMillis()}")
 
+    println("task finish time = ${System.currentTimeMillis()}")
+
 //    val xxHash = XXHash()
 //
 //    val docuemnt = Jsoup.connect(ApiEndport.secretTowerTalentMaterialList).get()

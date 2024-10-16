@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+        contents: write
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -32,5 +35,9 @@ jobs:
     - name: Run
       run: ./gradlew run
       working-directory: ./github_actions
+
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: update file(s) skip-checks:true
 
 
