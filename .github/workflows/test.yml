@@ -23,6 +23,7 @@ jobs:
 
     - name: Make gradlew executable
       run: chmod +x ./gradlew
+      working-directory: ./github_actions
 
     - name: Build with Gradle
       run: ./gradlew build
